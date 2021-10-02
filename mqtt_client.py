@@ -3,7 +3,7 @@ import time
 
 from paho.mqtt import client as mqtt_client
 
-broker = '127.0.0.1'
+broker = 'horus.local'
 port = 1883
 topic = "topic/test"
 # generate client ID with pub prefix randomly
