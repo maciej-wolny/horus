@@ -5,6 +5,8 @@ from abc import ABCMeta, abstractmethod
 import io
 import avro.io
 
+import mqtt_client
+
 test_schema = '''{
   "name": "TelemetryDataBatch",
   "type": "record",
