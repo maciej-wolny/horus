@@ -7,6 +7,7 @@ import avro.io
 
 import mqtt_client
 
+# TODO - schema in file
 test_schema = '''{
   "name": "TelemetryDataBatch",
   "type": "record",
@@ -103,19 +104,18 @@ class MQTTClient(MessageClient):
         self.topic = "topic/test"
 
     def send_messages(self, messages):
-        print('sending...')
-        print(f"`{json.dumps(messages)}`")
-        print('printing')
+        # TODO - latency metric
         size = 0
         for msg in messages:
             size += len(msg['objects'])
+        # TODO - optimize
         writer.write({"telemetryDataBatch": messages, "size": size}, encoder)
         result = self.client.publish(self.topic, bytes_writer.getvalue())
-        # result: [0, 1]
         status = result[0]
         if status == 0:
             print(f"Send `{len(messages)}` to topic `{self.topic}`")
         else:
+            # TODO - implement retry
             print(f"Failed to send message to topic {self.topic}")
 
 
