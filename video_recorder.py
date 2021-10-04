@@ -24,7 +24,7 @@ class BirdDetectionVideoHandler:
     def new_recording(self, recording_id):
         print("new recording:" + recording_id)
         self.current_file = RECORDINGS_DIRECTORY + recording_id + ".avi"
-        self.writer = cv2.VideoWriter(self.current_file, cv2.VideoWriter_fourcc('M','J','P','G'),
+        self.writer = cv2.VideoWriter(self.current_file, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'),
                                       FRAME_RATE,
                                       (self.frame_width, self.frame_height))
         self.recording = True
