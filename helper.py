@@ -16,6 +16,9 @@ class Helper:
         self.imW, self.imH = int(resW), int(resH)
         self.use_TPU = args.edgetpu
         CWD_PATH = os.getcwd()
+        if self.use_TPU:
+            if self.GRAPH_NAME == 'detect.tflite':
+                self.GRAPH_NAME = 'edgetpu.tflite'
         self.OBJECT_DETECTION_MODEL_PATH = os.path.join(CWD_PATH, self.MODEL_NAME, self.GRAPH_NAME)
         self.PATH_TO_LABELS = os.path.join(CWD_PATH, self.MODEL_NAME, self.LABELMAP_NAME)
 
@@ -30,7 +33,6 @@ class Helper:
         pkg = importlib.util.find_spec('tflite_runtime')
         if pkg:
             from tflite_runtime.interpreter import Interpreter
-
             if self.use_TPU:
                 from tflite_runtime.interpreter import load_delegate
         else:
