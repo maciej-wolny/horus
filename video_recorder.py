@@ -57,6 +57,8 @@ class BirdDetectionVideoHandler:
 
     def stop_and_publish(self):
         print("sending a video")
+        while self.recording:
+            time.sleep(0.1)
         requests.post("http://osiris.local:8000/upload",
                       files={'file': open(self.current_file, 'rb')})
         self.writer.release()

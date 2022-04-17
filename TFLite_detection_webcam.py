@@ -52,6 +52,8 @@ interpreter.allocate_tensors()
 # Get model details
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
+print(input_details)
+print(output_details)
 height = input_details[0]['shape'][1]
 width = input_details[0]['shape'][2]
 floating_model = (input_details[0]['dtype'] == np.float32)
@@ -76,6 +78,7 @@ frames_counter = 0
 bird_discovered_event = threading.Event()
 bird_discovered_flag = False
 bird_discovery_timer = 0
+
 while True:
     t1 = cv2.getTickCount()
     frame1 = video_stream.read()

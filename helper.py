@@ -19,7 +19,7 @@ class Helper:
         if self.use_TPU:
             if self.GRAPH_NAME == 'detect.tflite':
                 self.GRAPH_NAME = 'edgetpu.tflite'
-        self.OBJECT_DETECTION_MODEL_PATH = os.path.join(CWD_PATH, self.MODEL_NAME, self.GRAPH_NAME)
+        self.   OBJECT_DETECTION_MODEL_PATH = os.path.join(CWD_PATH, self.MODEL_NAME, self.GRAPH_NAME)
         self.PATH_TO_LABELS = os.path.join(CWD_PATH, self.MODEL_NAME, self.LABELMAP_NAME)
 
     def get_labels(self):

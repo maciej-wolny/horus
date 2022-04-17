@@ -33,8 +33,8 @@ def gstreamer_pipeline(
 
 class VideoStream:
     def __init__(self):
-        self.stream = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
-        # self.stream = cv2.VideoCapture(0)
+        # self.stream = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
+        self.stream = cv2.VideoCapture(0)
 
         (self.grabbed, self.frame) = self.stream.read()
         self.stopped = False
